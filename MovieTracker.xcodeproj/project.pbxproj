@@ -19,6 +19,7 @@
 		10FC7B632B48860B00D5247E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC7B622B48860B00D5247E /* Router.swift */; };
 		10FC7B662B48861F00D5247E /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 10FC7B652B48861F00D5247E /* NetworkManager */; };
 		A10693C52B488C92009E5843 /* PopularTVSeriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693C42B488C92009E5843 /* PopularTVSeriesModel.swift */; };
+		A10693C72B488D39009E5843 /* PopularTVSeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693C62B488D39009E5843 /* PopularTVSeriesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		10FC7B602B4885DF00D5247E /* TVSeriesOnAirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesOnAirView.swift; sourceTree = "<group>"; };
 		10FC7B622B48860B00D5247E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A10693C42B488C92009E5843 /* PopularTVSeriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesModel.swift; sourceTree = "<group>"; };
+		A10693C62B488D39009E5843 /* PopularTVSeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				10FC7B5C2B4885A700D5247E /* PopularTVSeriesView.swift */,
+				A10693C62B488D39009E5843 /* PopularTVSeriesViewModel.swift */,
 			);
 			path = PopularTVSeriesView;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				101613282B487F5E00B69769 /* MovieTrackerApp.swift in Sources */,
 				10FC7B592B48856300D5247E /* PopularMoviesView.swift in Sources */,
 				10FC7B612B4885DF00D5247E /* TVSeriesOnAirView.swift in Sources */,
+				A10693C72B488D39009E5843 /* PopularTVSeriesViewModel.swift in Sources */,
 				10FC7B5F2B4885C500D5247E /* MoviesInCinemaView.swift in Sources */,
 				10FC7B5B2B48858500D5247E /* PopularPersonsView.swift in Sources */,
 				10FC7B5D2B4885A700D5247E /* PopularTVSeriesView.swift in Sources */,
