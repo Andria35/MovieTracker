@@ -128,4 +128,5 @@ extension ContentView {
 // MARK: - Preview
 #Preview {
     ContentView()
+        .preferredColorScheme(.dark)
 }
