@@ -15,35 +15,51 @@ struct PopularTVSeriesView: View {
     
     // MARK: Body
     var body: some View {
-    #warning("Divide as components")
         VStack {
-            HStack {
-                Text("Popular TV Series")
-                    .font(.system(size: 20))
-                    .bold()
-                Spacer()
-            }
+            HeaderView
             
-            ScrollView {
-                LazyVGrid(columns: gridColumns, content: {
-                    ForEach(popularTVSeriesViewModel.tvSeries) { tvSeries in
-                        VStack(spacing: 8, content: {
-                            PopularTVSeriesGridItemComponentView(popularTVSeriesViewModel: popularTVSeriesViewModel, tvSeries: tvSeries)
-                                .frame(width: 168, height: 249)
-                                .scaledToFill()
-                                .clipShape(RoundedRectangle(cornerRadius: 2))
-                            
-                            HStack {
-                                Text("\(tvSeries.name)")
-                                    .font(.system(size: 16))
-                                Spacer()
-                            }
-                        })
-                    }
-                })
-            }
+            PopularTVSeriesScrollView
         }
         .padding()
+    }
+    
+    // MARK: - Views
+    private var HeaderView: some View {
+        HStack {
+            Text("Popular TV Series")
+                .font(.system(size: 20))
+                .bold()
+            Spacer()
+        }
+    }
+    
+    private var PopularTVSeriesScrollView: some View {
+        ScrollView {
+            LazyVGrid(columns: gridColumns, content: {
+                PopularTVSeriesGridItemView
+            })
+        }
+    }
+    
+    private var PopularTVSeriesGridItemView: some View {
+        ForEach(popularTVSeriesViewModel.tvSeries) { tvSeries in
+            VStack(spacing: 8, content: {
+                PopularTVSeriesGridItemComponentView(popularTVSeriesViewModel: popularTVSeriesViewModel, tvSeries: tvSeries)
+                    .frame(width: 168, height: 249)
+                    .scaledToFill()
+                    .clipShape(RoundedRectangle(cornerRadius: 2))
+                
+                popularTVSeriesNameView(tvSeries)
+            })
+        }
+    }
+    
+    private func popularTVSeriesNameView(_ tvSeries: PopularTVSeries) -> some View {
+        HStack {
+            Text("\(tvSeries.name)")
+                .font(.system(size: 16))
+            Spacer()
+        }
     }
 }
 
