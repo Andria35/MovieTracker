@@ -11,7 +11,7 @@ import NetworkManager
 final class PopularTVSeriesViewModel: ObservableObject {
     // MARK: - Properties
     @Published var tvSeries: [PopularTVSeries] = []
-    private let networkManager: APIServices
+    let networkManager: APIServices
     
     // MARK: - Init
     init(networkManager: APIServices) {
@@ -32,16 +32,6 @@ final class PopularTVSeriesViewModel: ObservableObject {
         }
         catch {
             print(error)
-        }
-    }
-    
-    func fetchImage(urlString: String) async -> Image {
-        do {
-            let image = try await networkManager.fetchImage(fromURL: urlString)
-            return Image(uiImage: image)
-        } catch {
-            print(error)
-            return Image(systemName: "photo")
         }
     }
 }

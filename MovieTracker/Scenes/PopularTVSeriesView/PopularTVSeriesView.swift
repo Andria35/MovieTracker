@@ -44,10 +44,10 @@ struct PopularTVSeriesView: View {
     private var PopularTVSeriesGridItemView: some View {
         ForEach(popularTVSeriesViewModel.tvSeries) { tvSeries in
             VStack(spacing: 8, content: {
-                PopularTVSeriesGridItemComponentView(popularTVSeriesViewModel: popularTVSeriesViewModel, tvSeries: tvSeries)
-                    .frame(width: 168, height: 249)
-                    .scaledToFill()
-                    .clipShape(RoundedRectangle(cornerRadius: 2))
+                PopularTVSeriesGridItemComponentView(
+                    popularTVSeriesGridItemComponentViewModel: PopularTVSeriesGridItemComponentViewModel(
+                        tvSeries: tvSeries,
+                        networkManager: popularTVSeriesViewModel.networkManager))
                 
                 popularTVSeriesNameView(tvSeries)
             })
