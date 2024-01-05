@@ -51,9 +51,14 @@
 		101613262B487F5E00B69769 /* MovieTracker */ = {
 			isa = PBXGroup;
 			children = (
-				101613272B487F5E00B69769 /* MovieTrackerApp.swift */,
-				101613292B487F5E00B69769 /* ContentView.swift */,
-				1016132B2B487F5E00B69769 /* Assets.xcassets */,
+				1016133D2B4880C900B69769 /* App */,
+				101613352B487FFD00B69769 /* Scenes */,
+				1016133C2B4880B400B69769 /* Components */,
+				1016133E2B4880D700B69769 /* Models */,
+				1016133F2B4880EA00B69769 /* Extensions */,
+				101613402B4880F700B69769 /* Navigation */,
+				101613412B48810A00B69769 /* Helpers */,
+				101613422B48811900B69769 /* Resources */,
 				1016132D2B487F5E00B69769 /* Preview Content */,
 			);
 			path = MovieTracker;
@@ -65,6 +70,113 @@
 				1016132E2B487F5E00B69769 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		101613352B487FFD00B69769 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1016133B2B48809400B69769 /* ContentView */,
+				1016133A2B48808300B69769 /* PopularMoviesView */,
+				101613392B48806E00B69769 /* PopularPersonsView */,
+				101613382B48805C00B69769 /* PopularTVSeriesView */,
+				101613372B48804500B69769 /* MoviesInCinemaView */,
+				101613362B48803100B69769 /* TVSeriesOnAirView */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		101613362B48803100B69769 /* TVSeriesOnAirView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TVSeriesOnAirView;
+			sourceTree = "<group>";
+		};
+		101613372B48804500B69769 /* MoviesInCinemaView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MoviesInCinemaView;
+			sourceTree = "<group>";
+		};
+		101613382B48805C00B69769 /* PopularTVSeriesView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopularTVSeriesView;
+			sourceTree = "<group>";
+		};
+		101613392B48806E00B69769 /* PopularPersonsView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopularPersonsView;
+			sourceTree = "<group>";
+		};
+		1016133A2B48808300B69769 /* PopularMoviesView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopularMoviesView;
+			sourceTree = "<group>";
+		};
+		1016133B2B48809400B69769 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				101613292B487F5E00B69769 /* ContentView.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		1016133C2B4880B400B69769 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1016133D2B4880C900B69769 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				101613272B487F5E00B69769 /* MovieTrackerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1016133E2B4880D700B69769 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1016133F2B4880EA00B69769 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		101613402B4880F700B69769 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		101613412B48810A00B69769 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		101613422B48811900B69769 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1016132B2B487F5E00B69769 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
