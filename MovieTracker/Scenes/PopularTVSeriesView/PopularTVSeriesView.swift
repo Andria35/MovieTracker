@@ -9,43 +9,41 @@ import SwiftUI
 import NetworkManager
 
 struct PopularTVSeriesView: View {
-    //MARK: Properties
+    // MARK: Properties
     @StateObject var popularTVSeriesViewModel: PopularTVSeriesViewModel
-    @State var tvSeriesImage: Image = Image(systemName: "photo")
     private let gridColumns = [GridItem(.flexible()), GridItem(.flexible())]
     
-    //MARK: Body
+    // MARK: Body
     var body: some View {
+    #warning("Divide as components")
         VStack {
-            Text("Popular TV Series")
-                .font(.system(size: 20))
-                .bold()
+            HStack {
+                Text("Popular TV Series")
+                    .font(.system(size: 20))
+                    .bold()
+                Spacer()
+            }
             
             ScrollView {
                 LazyVGrid(columns: gridColumns, content: {
                     ForEach(popularTVSeriesViewModel.tvSeries) { tvSeries in
                         VStack(spacing: 8, content: {
-                            tvSeriesImage
-                                .resizable()
+                            PopularTVSeriesGridItemComponentView(popularTVSeriesViewModel: popularTVSeriesViewModel, tvSeries: tvSeries)
                                 .frame(width: 168, height: 249)
+                                .scaledToFill()
                                 .clipShape(RoundedRectangle(cornerRadius: 2))
-                                .task {
-                                    let fetchedImage = await popularTVSeriesViewModel.fetchImage(urlString: "https://image.tmdb.org/t/p/w500\(tvSeries.backdropPath)")
-                                    await MainActor.run {
-                                        tvSeriesImage = fetchedImage
-                                    }
-                                }
                             
-                            Text("\(tvSeries.name)")
-                                .font(.system(size: 16))
+                            HStack {
+                                Text("\(tvSeries.name)")
+                                    .font(.system(size: 16))
+                                Spacer()
+                            }
                         })
                     }
                 })
-                .task {
-                    await popularTVSeriesViewModel.fetchTVSeriesData()
-                }
             }
         }
+        .padding()
     }
 }
 
