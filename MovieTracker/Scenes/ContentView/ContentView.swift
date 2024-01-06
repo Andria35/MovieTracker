@@ -115,7 +115,7 @@ extension ContentView {
                     .navigationDestination(for: Router.Destination.self) { destination in
                         switch destination {
                         case .TVSeriesOnAirDetailsView(let id):
-                            TVSeriesOnAirDetailsView(id: id)
+                            TVSeriesOnAirDetailsView(viewModel: TVSeriesOnAirDetailsViewModel(id: id, networkManager: NetworkManager()))
                         default:
                             EmptyView()
                         }

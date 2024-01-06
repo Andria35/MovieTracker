@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - TVShowsResponse
-struct TVShowsResponse: Codable {
+struct TVSeriesOnAirResponse: Codable {
     let results: [TVSeriesOnAir]
 
 }

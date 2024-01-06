@@ -6,17 +6,49 @@
 //
 
 import SwiftUI
+import NetworkManager
 
 struct TVSeriesOnAirDetailsView: View {
     
     // MARK: - Properties
-    let id: Int
+    @StateObject var viewModel: TVSeriesOnAirDetailsViewModel
+    
     // MARK: - Body
     var body: some View {
-        Text("\(id)")
+        VStack {
+            viewModel.tvSeriesOnAirImage
+                .resizable()
+                .frame(width: 300, height: 250)
+                .aspectRatio(contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+            
+            VStack(alignment: .leading) {
+                Text("\(viewModel.name)")
+                    .font(.title)
+                Divider()
+                Text("Overview: \(viewModel.overview)")
+                    .lineLimit(3)
+                    .font(.subheadline)
+                Divider()
+                Text("Seasons: \(viewModel.numberOfSeasons)")
+                    .font(.callout)
+                Divider()
+                Text("Episodes: \(viewModel.numberOfEpisodes)")
+                    .font(.callout)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .fontWeight(.semibold)
+
+            
+
+
+
+            Spacer()
+        }
+        .padding(.horizontal)
     }
 }
 
 #Preview {
-    TVSeriesOnAirDetailsView(id: 5)
+    TVSeriesOnAirDetailsView(viewModel: TVSeriesOnAirDetailsViewModel(id: TVSeriesOnAirMockData.tvSeriesOnAir.id, networkManager: NetworkManager()))
 }

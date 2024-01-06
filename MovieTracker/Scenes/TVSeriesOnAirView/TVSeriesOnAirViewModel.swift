@@ -19,19 +19,19 @@ final class TVSeriesOnAirViewModel: ObservableObject {
         self.networkManager = networkManager
         
         Task {
-            await fetchProducts()
+            await fetchTVSeries()
         }
     }
     
     // MARK: - Methods
     
     // MARK: - API Calls
-    private func fetchProducts() async {
+    private func fetchTVSeries() async {
         let apiKey = "eb48012526011eb1da6f6963274b867d"
         let urlString = "https://api.themoviedb.org/3/tv/on_the_air?api_key=\(apiKey)"
 
         do {
-            let tvShowsResponse: TVShowsResponse = try await networkManager.fetchData(fromURL: urlString)
+            let tvShowsResponse: TVSeriesOnAirResponse = try await networkManager.fetchData(fromURL: urlString)
             await MainActor.run {
                 tvShows = tvShowsResponse.results
             }
