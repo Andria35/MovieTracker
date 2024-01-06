@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MovieDetailsView: View {
+    // MARK: - Properties
     @StateObject var movieDetailsViewModel: MovieDetailsViewModel
     
+    // MARK: - Body
     var body: some View {
         ScrollView {
             VStack {

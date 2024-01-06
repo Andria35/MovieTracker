@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct PopularMoviesView: View {
+    // MARK: - Properties
     @StateObject var popularMoviesViewModel = PopularMoviesViewModel()
     @EnvironmentObject var popularMoviesViewRouter: Router
     @Environment(\.colorScheme) var colorScheme
     
+    // MARK: - Body
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible(), spacing: 20), GridItem(.flexible(), spacing: 20)], spacing: 20, content: {
@@ -29,7 +31,7 @@ struct PopularMoviesView: View {
     }
 }
 
-
+// MARK: - Preview
 #Preview {
     PopularMoviesView()
 }
