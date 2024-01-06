@@ -79,8 +79,6 @@ extension ContentView {
                 PopularTVSeriesView()
                     .navigationDestination(for: Router.Destination.self) { destination in
                         switch destination {
-                        case .movieDetails(let movieId):
-                            MovieDetailsView(movieDetailsViewModel: MovieDetailsViewModel(movieId: movieId))
                         default:
                             EmptyView()
                         }
