@@ -11,32 +11,43 @@ struct MovieDetailsView: View {
     @StateObject var movieDetailsViewModel: MovieDetailsViewModel
     
     var body: some View {
-        VStack {
-            AsyncImage(url: URL(string: MovieHelper.constructFullImageUrl(imageUrl: movieDetailsViewModel.movieDetails?.posterPath ?? ""))) { phase in
-                switch phase {
-                case .success(let image):
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 393, height: 384)
-                        .background(
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 393, height: 456)
-                                .clipped()
-                        )
-                        .cornerRadius(72)
-                default: ProgressView()
+        ScrollView {
+            VStack {
+                AsyncImage(url: URL(string: MovieHelper.constructFullImageUrl(imageUrl: movieDetailsViewModel.movieDetails?.posterPath ?? ""))) { phase in
+                    switch phase {
+                    case .success(let image):
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 393, height: 384)
+                            .background(
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 393, height: 456)
+                                    .clipped()
+                            )
+                            .cornerRadius(30)
+                    default: ProgressView()
+                    }
                 }
+                
+                Text(movieDetailsViewModel.movieDetails?.title ?? "")
+                    .padding()
+                
+                VStack {
+                    Text(movieDetailsViewModel.movieDetails?.overview ?? "")
+                        .padding()
+                    
+                    Text("Release date: \(movieDetailsViewModel.movieDetails?.releaseDate ?? "")")
+                }
+                .padding(.horizontal, 10)
+                
+                Spacer()
             }
-            
-            Text(movieDetailsViewModel.movieDetails?.title ?? "")
+            .padding(.top, -100)
             
             Spacer()
         }
-        .ignoresSafeArea(.all)
-        .padding(.top, -72)
         
-        Spacer()
     }
 }

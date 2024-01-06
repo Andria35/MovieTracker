@@ -33,5 +33,5 @@ struct PopularMoviesGridItemComponentView: View {
 }
 
 #Preview {
-    PopularMoviesGridItemComponentView(movie: MovieModel(id: 1, title: "Movie", posterPath: ""))
+    PopularMoviesGridItemComponentView(movie: MovieModel(id: 1, title: "Movie", posterPath: "", overview: "Overview", releaseDate: "Date"))
 }
