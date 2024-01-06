@@ -18,17 +18,11 @@ struct MovieDetailsView: View {
                 AsyncImage(url: URL(string: MovieHelper.constructFullImageUrl(imageUrl: movieDetailsViewModel.movieDetails?.posterPath ?? ""))) { phase in
                     switch phase {
                     case .success(let image):
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 393, height: 384)
-                            .background(
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 393, height: 456)
-                                    .clipped()
-                            )
-                            .cornerRadius(30)
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 393, height: 456)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
                     default: ProgressView()
                     }
                 }
@@ -46,7 +40,6 @@ struct MovieDetailsView: View {
                 
                 Spacer()
             }
-            .padding(.top, -100)
             
             Spacer()
         }

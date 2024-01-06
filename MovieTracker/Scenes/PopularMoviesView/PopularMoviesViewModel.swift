@@ -8,7 +8,7 @@
 import Foundation
 import NetworkManager
 
-class PopularMoviesViewModel: ObservableObject {
+final class PopularMoviesViewModel: ObservableObject {
     // MARK: - Properties
     @Published var movies: [MovieModel] = []
     private let networkManager = NetworkManager()
