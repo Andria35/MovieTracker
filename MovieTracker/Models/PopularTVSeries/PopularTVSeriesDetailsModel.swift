@@ -24,9 +24,9 @@ struct PopularTVSeriesDetails: Decodable {
         case voteAverage = "vote_average"
         case genres, id, name, overview
     }
-    
-    struct Genre: Decodable {
-        let id: Int
-        let name: String
-    }
+}
+
+struct Genre: Decodable {
+    let id: Int
+    let name: String
 }
