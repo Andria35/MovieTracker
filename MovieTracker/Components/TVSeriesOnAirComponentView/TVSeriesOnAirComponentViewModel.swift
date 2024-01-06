@@ -9,6 +9,7 @@ import SwiftUI
 import NetworkManager
 
 final class TVSeriesOnAirComponentViewModel: ObservableObject {
+    
     // MARK: - Properties
     private let networkManager: APIServices
     let tvSeriesOnAir: TVSeriesOnAir
@@ -16,19 +17,16 @@ final class TVSeriesOnAirComponentViewModel: ObservableObject {
 
     
     // MARK: Initialization
-
     init(networkManager: APIServices, tvSeriesOnAir: TVSeriesOnAir) {
         self.networkManager = networkManager
         self.tvSeriesOnAir = tvSeriesOnAir
-        
         Task {
             await fetchImage(urlString: "https://image.tmdb.org/t/p/w500\(tvSeriesOnAir.backdropPath)")
         }
     }
     
     // MARK: - API Calls
-    private func fetchImage(urlString: String) async{
-        
+    private func fetchImage(urlString: String) async {
         do {
             let image = try await networkManager.fetchImage(fromURL: urlString)
             await MainActor.run {
@@ -38,5 +36,4 @@ final class TVSeriesOnAirComponentViewModel: ObservableObject {
             print(error)
         }
     }
-
 }

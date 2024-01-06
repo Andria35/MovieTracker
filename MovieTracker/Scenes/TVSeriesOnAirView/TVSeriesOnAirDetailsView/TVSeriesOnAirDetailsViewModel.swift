@@ -19,7 +19,6 @@ final class TVSeriesOnAirDetailsViewModel: ObservableObject {
     @Published var overview = ""
     @Published var numberOfEpisodes = 0
     @Published var numberOfSeasons = 0
-    @Published var language = ""
     
     // MARK: - Initialization
     init(id: Int, networkManager: APIServices) {
@@ -33,9 +32,10 @@ final class TVSeriesOnAirDetailsViewModel: ObservableObject {
     
     // MARK: - API Calls
     private func fetchTVSeriesOnAirDetails() async {
+        
         let apiKey = "eb48012526011eb1da6f6963274b867d"
         let urlString = "https://api.themoviedb.org/3/tv/\(id)?api_key=\(apiKey)"
-
+        
         do {
             let tvSeriesOnAirDetails: TVSeriesOnAirDetails = try await networkManager.fetchData(fromURL: urlString)
             await MainActor.run {
@@ -44,7 +44,6 @@ final class TVSeriesOnAirDetailsViewModel: ObservableObject {
                 overview = tvSeriesOnAirDetails.overview
                 numberOfSeasons = tvSeriesOnAirDetails.numberOfSeasons
                 numberOfEpisodes = tvSeriesOnAirDetails.numberOfEpisodes
-                language = tvSeriesOnAirDetails.originalLanguage
             }
         } catch {
             print(error)
@@ -62,5 +61,5 @@ final class TVSeriesOnAirDetailsViewModel: ObservableObject {
             print(error)
         }
     }
-
+    
 }

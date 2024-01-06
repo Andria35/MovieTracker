@@ -17,14 +17,11 @@ final class TVSeriesOnAirViewModel: ObservableObject {
     // MARK: - Initialization
     init(networkManager: APIServices) {
         self.networkManager = networkManager
-        
         Task {
             await fetchTVSeries()
         }
     }
-    
-    // MARK: - Methods
-    
+        
     // MARK: - API Calls
     private func fetchTVSeries() async {
         let apiKey = "eb48012526011eb1da6f6963274b867d"
