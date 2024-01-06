@@ -12,6 +12,8 @@ struct TVSeriesOnAirView: View {
     
     // MARK: - Properties
     @StateObject var viewModel: TVSeriesOnAirViewModel
+    @EnvironmentObject var router: Router
+    
     private let gridLayout: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -23,14 +25,24 @@ struct TVSeriesOnAirView: View {
             LazyVGrid(columns: gridLayout) {
                 ForEach(viewModel.tvShows) { tvShow in
                     TVSeriesOnAirComponentView(viewModel: TVSeriesOnAirComponentViewModel(networkManager: NetworkManager(), tvSeriesOnAir: tvShow))
+                        .onTapGesture {
+                            router.navigate(to: .TVSeriesOnAirDetailsView(id: tvShow.id))
+                        }
+
                 }
 
             }
+            .padding()
 
         }
+        .navigationTitle("TV Series On Air")
     }
 }
 
+// MARK: - Preview
 #Preview {
-    TVSeriesOnAirView(viewModel: TVSeriesOnAirViewModel(networkManager: NetworkManager()))
+    NavigationStack {
+        TVSeriesOnAirView(viewModel: TVSeriesOnAirViewModel(networkManager: NetworkManager()))
+            .environmentObject(Router())
+    }
 }

@@ -18,13 +18,16 @@ struct TVSeriesOnAirComponentView: View {
             viewModel.tvSeriesOnAirImage
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            .frame(height: 130)
+                .frame(height: 140)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+
+            
             
             Text(viewModel.tvSeriesOnAir.name)
                 .lineLimit(1)
                 .fontWeight(.semibold)
         }
-        .padding()
+
     }
 }
 

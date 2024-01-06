@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct TVSeriesOnAirDetailsView: View {
+    
+    // MARK: - Properties
+    let id: Int
+    // MARK: - Body
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("\(id)")
     }
 }
 
 #Preview {
-    TVSeriesOnAirDetailsView()
+    TVSeriesOnAirDetailsView(id: 5)
 }
