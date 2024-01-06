@@ -11,7 +11,8 @@ import NetworkManager
 struct PopularTVSeriesView: View {
     // MARK: Properties
     @StateObject var popularTVSeriesViewModel: PopularTVSeriesViewModel
-    private let gridColumns = [GridItem(.flexible()), GridItem(.flexible())]
+    @EnvironmentObject private var router: Router
+    private let gridColumns = [GridItem(.flexible(), spacing: 20), GridItem(.flexible(), spacing: 20)]
     
     // MARK: Body
     var body: some View {
@@ -43,22 +44,13 @@ struct PopularTVSeriesView: View {
     
     private var PopularTVSeriesGridItemView: some View {
         ForEach(popularTVSeriesViewModel.tvSeries) { tvSeries in
-            VStack(spacing: 8, content: {
-                PopularTVSeriesGridItemComponentView(
-                    popularTVSeriesGridItemComponentViewModel: PopularTVSeriesGridItemComponentViewModel(
-                        tvSeries: tvSeries,
-                        networkManager: popularTVSeriesViewModel.networkManager))
-                
-                popularTVSeriesNameView(tvSeries)
-            })
-        }
-    }
-    
-    private func popularTVSeriesNameView(_ tvSeries: PopularTVSeries) -> some View {
-        HStack {
-            Text("\(tvSeries.name)")
-                .font(.system(size: 16))
-            Spacer()
+            PopularTVSeriesGridItemComponentView(
+                popularTVSeriesGridItemComponentViewModel: PopularTVSeriesGridItemComponentViewModel(
+                    tvSeries: tvSeries,
+                    networkManager: popularTVSeriesViewModel.networkManager))
+            .onTapGesture {
+                router.navigate(to: .popularTVSeriesDetailsView(tvSeriesID: tvSeries.id))
+            }
         }
     }
 }

@@ -10,54 +10,55 @@ import NetworkManager
 
 struct PopularTVSeriesDetailsView: View {
     @StateObject var popularTVSeriesDetailsViewModel: PopularTVSeriesDetailsViewModel
-    @Binding var tvSeriesID: Int
+    @EnvironmentObject private var router: Router
     
     var body: some View {
         VStack(spacing: 24) {
-            Image(systemName: "photo")
-                .resizable()
-                .frame(width: .infinity, height: 456)
-                .clipShape(RoundedRectangle(cornerRadius: 72))
-            
-            HStack {
-                Text("\(popularTVSeriesDetailsViewModel.tvSeriesName)")
-                    .font(.system(size: 20))
-                    .bold()
-                
-                Spacer()
-                
-                Image(systemName: "star.fill")
-                    .resizable()
-                    .foregroundStyle(.yellow)
-                    .frame(width: 20, height: 20)
-                
-                Text("\(popularTVSeriesDetailsViewModel.tvSeriesVoteAverage)")
+            if popularTVSeriesDetailsViewModel.tvSeriesImageBackdropPath != "" {
+                PopularTVSeriesDetailsImageComponentView(popularTVSeriesDetailsImageComponentViewModel: PopularTVSeriesDetailsImageComponentViewModel(backdropPath: popularTVSeriesDetailsViewModel.tvSeriesImageBackdropPath, networkManager: NetworkManager()))
             }
             
-            HStack {
-                Text("\(popularTVSeriesDetailsViewModel.tvSeriesReleaseDate)")
-                    .foregroundStyle(.opacity(0.5))
+            VStack(spacing: 12) {
+                HStack {
+                    Text("\(popularTVSeriesDetailsViewModel.tvSeriesName)")
+                        .font(.system(size: 20))
+                        .bold()
+                    
+                    Spacer()
+                    
+                    Image(systemName: "star.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundStyle(.yellow)
+                    
+                    Text("\(String(format: "%.1f", popularTVSeriesDetailsViewModel.tvSeriesVoteAverage))")
+                }
                 
-                Spacer()
+                HStack {
+                    Text("\(popularTVSeriesDetailsViewModel.tvSeriesReleaseDate)")
+                        .foregroundStyle(.opacity(0.5))
+                    
+                    Spacer()
+                }
             }
             
             Text("\(popularTVSeriesDetailsViewModel.tvSeriesOverview)")
+                .lineLimit(3...5)
             
-            HStack {
-                Text("Genre: \(popularTVSeriesDetailsViewModel.formatedGenreString)")
-                    .foregroundStyle(.opacity(0.5))
-                Spacer()
-            }
-            
-            HStack {
-                Text("\(popularTVSeriesDetailsViewModel.tvSeriesNumberOfSeasons)")
-                    .foregroundStyle(.opacity(0.5))
-                Spacer()
+            VStack(spacing: 12) {
+                HStack {
+                    Text("Genre: \(popularTVSeriesDetailsViewModel.formatedGenreString)")
+                        .foregroundStyle(.opacity(0.5))
+                    Spacer()
+                }
+                
+                HStack {
+                    Text("Number of Seasons: \(popularTVSeriesDetailsViewModel.tvSeriesNumberOfSeasons)")
+                        .foregroundStyle(.opacity(0.5))
+                    Spacer()
+                }
             }
         }
+        .padding()
     }
 }
-
-//#Preview {
-//    PopularTVSeriesDetailsView(popularTVSeriesDetailsViewModel: PopularTVSeriesDetailsViewModel(networkManager: NetworkManager(), tvSeriesID: 4191117), tvSeriesID: 4191117)
-//}

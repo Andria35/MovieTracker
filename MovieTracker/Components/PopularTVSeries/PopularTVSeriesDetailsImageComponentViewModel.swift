@@ -1,5 +1,5 @@
 //
-//  PopularTVSeriesGridItemComponentViewModel.swift
+//  PupularTVSeriesDetailsImageComponentViewModel.swift
 //  MovieTracker
 //
 //  Created by Luka Gazdeliani on 06.01.24.
@@ -8,23 +8,23 @@
 import SwiftUI
 import NetworkManager
 
-final class PopularTVSeriesGridItemComponentViewModel: ObservableObject {
+final class PopularTVSeriesDetailsImageComponentViewModel: ObservableObject {
     // MARK: - Properties
     @Published var tvSeriesImage: Image = Image(systemName: "photo")
-    var tvSeries: PopularTVSeries
+    var backdropPath: String
     let networkManager: APIServices
     
     // MARK: - Init
-    init(tvSeries: PopularTVSeries, networkManager: APIServices) {
-        self.tvSeries = tvSeries
+    init(backdropPath: String, networkManager: APIServices) {
+        self.backdropPath = backdropPath
         self.networkManager = networkManager
         Task {
-            await fetchImage(urlString: "https://image.tmdb.org/t/p/w500\(tvSeries.backdropPath)")
+            await fetchImage(urlString: "https://image.tmdb.org/t/p/w500\(backdropPath)")
         }
     }
     
     // MARK: - Methods
-    func fetchImage(urlString: String) async  {
+    func fetchImage(urlString: String) async {
         do {
             let image = try await networkManager.fetchImage(fromURL: urlString)
             await MainActor.run {

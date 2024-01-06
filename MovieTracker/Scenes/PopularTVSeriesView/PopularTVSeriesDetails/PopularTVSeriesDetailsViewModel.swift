@@ -9,7 +9,7 @@ import SwiftUI
 import NetworkManager
 
 final class PopularTVSeriesDetailsViewModel: ObservableObject {
-    // MARK: - Porperties
+    // MARK: - Properties
     let networkManager: APIServices
     var tvSeriesID: Int
     @Published var tvSeriesName: String = ""
@@ -19,6 +19,7 @@ final class PopularTVSeriesDetailsViewModel: ObservableObject {
     @Published var tvSeriesNumberOfSeasons: Int = 1
     @Published var tvSeriesVoteAverage: Double = 1.0
     @Published var formatedGenreString: String = ""
+    @Published var tvSeriesImageBackdropPath: String = ""
     
     // MARK: - Init
     init(networkManager: APIServices, tvSeriesID: Int) {
@@ -26,7 +27,9 @@ final class PopularTVSeriesDetailsViewModel: ObservableObject {
         self.tvSeriesID = tvSeriesID
         Task {
             await fetchTVSeriesData()
-            formatedGenreString = tvSeriesGenre.map { String($0.name) }.joined(separator: ",")
+            await MainActor.run {
+                formatedGenreString = tvSeriesGenre.map { String($0.name) }.joined(separator: ", ")
+            }
         }
     }
     
@@ -42,6 +45,7 @@ final class PopularTVSeriesDetailsViewModel: ObservableObject {
                 tvSeriesGenre = tvSeriesDetailsResponse.genres
                 tvSeriesNumberOfSeasons = tvSeriesDetailsResponse.numberOfSeasons
                 tvSeriesVoteAverage = tvSeriesDetailsResponse.voteAverage
+                tvSeriesImageBackdropPath = tvSeriesDetailsResponse.backdropPath
             }
         }
         catch {

@@ -13,9 +13,22 @@ struct PopularTVSeriesGridItemComponentView: View {
     
     // MARK: - Body
     var body: some View {
-        popularTVSeriesGridItemComponentViewModel.tvSeriesImage
-            .frame(width: 168, height: 249)
-            .scaledToFill()
-            .clipShape(RoundedRectangle(cornerRadius: 2))
+        VStack(spacing: 8) {
+            popularTVSeriesGridItemComponentViewModel.tvSeriesImage
+                .resizable()
+                .frame(height: 249)
+                .aspectRatio(contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: 2))
+            
+            popularTVSeriesNameView(popularTVSeriesGridItemComponentViewModel.tvSeries)
+        }
+    }
+    
+    private func popularTVSeriesNameView(_ tvSeries: PopularTVSeries) -> some View {
+        HStack {
+            Text("\(tvSeries.name)")
+                .font(.system(size: 16))
+            Spacer()
+        }
     }
 }
