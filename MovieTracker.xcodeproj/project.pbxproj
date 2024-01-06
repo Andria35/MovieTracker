@@ -178,7 +178,7 @@
 		1016133E2B4880D700B69769 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8808553A2B496055006FAA99 /* MovieModel.swift */,
+				880855442B496801006FAA99 /* PopularMovies */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +212,14 @@
 				1016132B2B487F5E00B69769 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		880855442B496801006FAA99 /* PopularMovies */ = {
+			isa = PBXGroup;
+			children = (
+				8808553A2B496055006FAA99 /* MovieModel.swift */,
+			);
+			path = PopularMovies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
