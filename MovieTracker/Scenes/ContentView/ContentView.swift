@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NetworkManager
 
 struct ContentView: View {
     
@@ -110,7 +111,7 @@ extension ContentView {
     private var tvSeriesOnAirNavigationStack: some View {
         NavigationStack(
             path: $tvSeriesOnAirViewRouter.navigationPath) {
-                TVSeriesOnAirView()
+                TVSeriesOnAirView(viewModel: TVSeriesOnAirViewModel(networkManager: NetworkManager()))
                     .navigationDestination(for: Router.Destination.self) { destination in
                         switch destination {
                         default:
