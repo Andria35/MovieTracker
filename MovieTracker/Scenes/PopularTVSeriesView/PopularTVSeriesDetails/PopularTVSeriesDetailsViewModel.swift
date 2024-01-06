@@ -34,7 +34,7 @@ final class PopularTVSeriesDetailsViewModel: ObservableObject {
     }
     
     // MARK: - Methods
-    func fetchTVSeriesData() async {
+    private func fetchTVSeriesData() async {
         let urlString = "https://api.themoviedb.org/3/tv/\(tvSeriesID)?api_key=6eba9c07b10a9dbccd016ffdfea557c8#"
         do {
             let tvSeriesDetailsResponse: PopularTVSeriesDetails = try await networkManager.fetchData(fromURL: urlString)

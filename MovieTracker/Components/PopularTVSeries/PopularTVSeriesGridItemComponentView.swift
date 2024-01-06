@@ -18,16 +18,18 @@ struct PopularTVSeriesGridItemComponentView: View {
                 .resizable()
                 .frame(height: 249)
                 .aspectRatio(contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 2))
+                .clipShape(RoundedRectangle(cornerRadius: 12))
             
             popularTVSeriesNameView(popularTVSeriesGridItemComponentViewModel.tvSeries)
         }
     }
     
+    // MARK: - Views
     private func popularTVSeriesNameView(_ tvSeries: PopularTVSeries) -> some View {
         HStack {
             Text("\(tvSeries.name)")
                 .font(.system(size: 16))
+                .bold()
             Spacer()
         }
     }

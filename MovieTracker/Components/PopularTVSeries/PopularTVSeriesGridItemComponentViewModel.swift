@@ -24,7 +24,7 @@ final class PopularTVSeriesGridItemComponentViewModel: ObservableObject {
     }
     
     // MARK: - Methods
-    func fetchImage(urlString: String) async  {
+    private func fetchImage(urlString: String) async  {
         do {
             let image = try await networkManager.fetchImage(fromURL: urlString)
             await MainActor.run {
