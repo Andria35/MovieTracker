@@ -144,10 +144,9 @@
 		1016133A2B48808300B69769 /* PopularMoviesView */ = {
 			isa = PBXGroup;
 			children = (
-				8808553C2B4960BC006FAA99 /* PopularMoviesViewModel.swift */,
-				8808553E2B49619F006FAA99 /* MovieDetailsViewModel.swift */,
+				880855452B496865006FAA99 /* MovieDetails */,
 				10FC7B582B48856300D5247E /* PopularMoviesView.swift */,
-				880855422B4962A6006FAA99 /* MovieDetailsView.swift */,
+				8808553C2B4960BC006FAA99 /* PopularMoviesViewModel.swift */,
 			);
 			path = PopularMoviesView;
 			sourceTree = "<group>";
@@ -220,6 +219,15 @@
 				8808553A2B496055006FAA99 /* MovieModel.swift */,
 			);
 			path = PopularMovies;
+			sourceTree = "<group>";
+		};
+		880855452B496865006FAA99 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				880855422B4962A6006FAA99 /* MovieDetailsView.swift */,
+				8808553E2B49619F006FAA99 /* MovieDetailsViewModel.swift */,
+			);
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
