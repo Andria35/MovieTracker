@@ -11,17 +11,13 @@ import Foundation
 final class PopularPersonsViewModel: ObservableObject {
     //MARK: - Properties
     @Published var popularPersons: [PopularPerson] = []
-    
     private let networkManager = NetworkManager()
-
-    
     
     // MARK: - Network Calls
     
     init() {
         Task {
             await getPopularPersons()
-            print(popularPersons.count)
         }
     }
     
