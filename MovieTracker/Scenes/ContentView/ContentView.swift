@@ -77,9 +77,16 @@ extension ContentView {
     private var popularTVSeriesNavigationStack: some View {
         NavigationStack(
             path: $popularTVSeriesViewRouter.navigationPath) {
-                PopularTVSeriesView()
+                PopularTVSeriesView(
+                    popularTVSeriesViewModel: PopularTVSeriesViewModel(
+                        networkManager: NetworkManager()))
                     .navigationDestination(for: Router.Destination.self) { destination in
                         switch destination {
+                        case .popularTVSeriesDetailsView(let tvSeriesID):
+                            PopularTVSeriesDetailsView(
+                                popularTVSeriesDetailsViewModel: PopularTVSeriesDetailsViewModel(
+                                    networkManager: NetworkManager(),
+                                    tvSeriesID: tvSeriesID))
                         default:
                             EmptyView()
                         }
@@ -115,9 +122,11 @@ extension ContentView {
     private var tvSeriesOnAirNavigationStack: some View {
         NavigationStack(
             path: $tvSeriesOnAirViewRouter.navigationPath) {
-                TVSeriesOnAirView()
+                TVSeriesOnAirView(viewModel: TVSeriesOnAirViewModel(networkManager: NetworkManager()))
                     .navigationDestination(for: Router.Destination.self) { destination in
                         switch destination {
+                        case .TVSeriesOnAirDetailsView(let id):
+                            TVSeriesOnAirDetailsView(viewModel: TVSeriesOnAirDetailsViewModel(id: id, networkManager: NetworkManager()))
                         default:
                             EmptyView()
                         }
