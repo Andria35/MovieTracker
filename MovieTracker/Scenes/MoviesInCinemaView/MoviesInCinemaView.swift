@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct MoviesInCinemaView: View {
+    @ObservedObject var viewModel = MovieInCinemaViewModel()
+    
     var body: some View {
-        Text("MoviesInCinemaView")
+        MovieList(movies: viewModel.movies, fetchImage: viewModel.fetchCinemaImage)
     }
 }
 
-#Preview {
-    MoviesInCinemaView()
+struct MoviesInCinemaView_Previews: PreviewProvider {
+    static var previews: some View {
+        MoviesInCinemaView()
+    }
 }
