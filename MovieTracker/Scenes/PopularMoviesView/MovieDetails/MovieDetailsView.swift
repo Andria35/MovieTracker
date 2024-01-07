@@ -14,7 +14,7 @@ struct MovieDetailsView: View {
     // MARK: - Body
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 AsyncImage(url: URL(string: MovieHelper.constructFullImageUrl(imageUrl: movieDetailsViewModel.movieDetails?.posterPath ?? ""))) { phase in
                     switch phase {
                     case .success(let image):
@@ -23,6 +23,12 @@ struct MovieDetailsView: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 393, height: 456)
                             .clipShape(RoundedRectangle(cornerRadius: 30))
+                        
+                    case .failure:
+                        Image(systemName: "photo.artframe")
+                            .resizable()
+                            .scaledToFit()
+                        
                     default: ProgressView()
                     }
                 }
@@ -36,10 +42,10 @@ struct MovieDetailsView: View {
                     
                     Text("Release date: \(movieDetailsViewModel.movieDetails?.releaseDate ?? "")")
                 }
-                .padding(.horizontal, 10)
                 
                 Spacer()
             }
+            .padding(.horizontal, 10)
             
             Spacer()
         }

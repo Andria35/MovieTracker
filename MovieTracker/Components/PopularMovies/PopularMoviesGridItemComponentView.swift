@@ -23,6 +23,11 @@ struct PopularMoviesGridItemComponentView: View {
                         .resizable()
                         .scaledToFit()
                     
+                case .failure:
+                    Image(systemName: "photo.artframe")
+                        .resizable()
+                        .scaledToFit()
+                    
                 default: ProgressView()
                 }
             }
