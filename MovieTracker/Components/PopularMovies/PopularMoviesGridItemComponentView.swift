@@ -15,7 +15,7 @@ struct PopularMoviesGridItemComponentView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             AsyncImage(url: URL(string: MovieHelper.constructFullImageUrl(imageUrl: movie.posterPath))) { phase in
                 switch phase {
                 case .success(let image):
