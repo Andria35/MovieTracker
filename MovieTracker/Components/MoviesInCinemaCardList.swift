@@ -11,7 +11,6 @@ struct MovieList: View {
     var movies: [CinemaMovieModel]
     var fetchImage: (String) -> String
     
-    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {

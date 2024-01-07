@@ -9,10 +9,9 @@
 import SwiftUI
 import NetworkManager
 
-class MovieInCinemaViewModel: ObservableObject {
+final class MovieInCinemaViewModel: ObservableObject {
     @Published var movies: [CinemaMovieModel] = []
     private let networkManager = NetworkManager()
-    
     
     private let url = "https://api.themoviedb.org/3/movie/now_playing?api_key=ff8cc5d24b4e6325ebb3fd781ac1463d"
     private let imageUrlCinema = "https://image.tmdb.org/t/p/w500"

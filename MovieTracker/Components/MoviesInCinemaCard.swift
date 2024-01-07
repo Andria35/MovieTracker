@@ -16,7 +16,6 @@ import SwiftUI
         VStack(alignment: .leading, spacing: 8) {
             
             //MARK: - Image
-            
             if isLoading {
                 ProgressView()
                     .onAppear {
@@ -45,7 +44,6 @@ import SwiftUI
             }
             
             //MARK: - Title
-
             Text(movie.title)
                 .font(.system(size: 16, weight: .regular))
                 .lineLimit(1)
