@@ -23,6 +23,7 @@
 		A9AE58A82B4989EE0009EE54 /* MoviesInCinemaCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE58A72B4989EE0009EE54 /* MoviesInCinemaCardList.swift */; };
 		A9AE58AA2B498A050009EE54 /* MoviesInCinemaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE58A92B498A050009EE54 /* MoviesInCinemaCard.swift */; };
 		A9AE58AC2B498A240009EE54 /* MoviesInCinemaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AE58AB2B498A240009EE54 /* MoviesInCinemaModel.swift */; };
+		F193DF232B4A5C5800781D8D /* PopularPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = F193DF222B4A5C5800781D8D /* PopularPerson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A9AE58A72B4989EE0009EE54 /* MoviesInCinemaCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInCinemaCardList.swift; sourceTree = "<group>"; };
 		A9AE58A92B498A050009EE54 /* MoviesInCinemaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInCinemaCard.swift; sourceTree = "<group>"; };
 		A9AE58AB2B498A240009EE54 /* MoviesInCinemaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInCinemaModel.swift; sourceTree = "<group>"; };
+		F193DF222B4A5C5800781D8D /* PopularPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPerson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				A9AE58AB2B498A240009EE54 /* MoviesInCinemaModel.swift */,
+				F193DF222B4A5C5800781D8D /* PopularPerson.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F193DF232B4A5C5800781D8D /* PopularPerson.swift in Sources */,
 				A9AE58AA2B498A050009EE54 /* MoviesInCinemaCard.swift in Sources */,
 				10FC7B632B48860B00D5247E /* Router.swift in Sources */,
 				A9AE58A62B4989DA0009EE54 /* CinemaMovieDetailsView.swift in Sources */,
