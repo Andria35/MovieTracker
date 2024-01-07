@@ -16,6 +16,7 @@ final class Router: ObservableObject {
     // MARK: - Destination
     public enum Destination: Decodable, Hashable {
         case emptyView
+        case TVSeriesOnAirDetailsView(id: Int)
     }
     
     // MARK: - Methods
