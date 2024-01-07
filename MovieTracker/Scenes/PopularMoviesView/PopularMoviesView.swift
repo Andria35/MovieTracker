@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import NetworkManager
 
 struct PopularMoviesView: View {
     // MARK: - Properties
-    @StateObject var popularMoviesViewModel = PopularMoviesViewModel()
+    @StateObject var popularMoviesViewModel: PopularMoviesViewModel
     @EnvironmentObject var popularMoviesViewRouter: Router
     @Environment(\.colorScheme) var colorScheme
     
@@ -33,5 +34,5 @@ struct PopularMoviesView: View {
 
 // MARK: - Preview
 #Preview {
-    PopularMoviesView()
+    PopularMoviesView(popularMoviesViewModel: PopularMoviesViewModel(networkManager: NetworkManager()))
 }

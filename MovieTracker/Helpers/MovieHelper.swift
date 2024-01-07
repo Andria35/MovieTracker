@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MovieHelper {
+struct MovieHelper {
     // MARK: - Properties
     private static let rootImagesEndpoint = "https://image.tmdb.org/t/p/w500"
     

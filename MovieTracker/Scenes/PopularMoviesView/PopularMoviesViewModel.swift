@@ -11,12 +11,13 @@ import NetworkManager
 final class PopularMoviesViewModel: ObservableObject {
     // MARK: - Properties
     @Published var movies: [MovieModel] = []
-    private let networkManager = NetworkManager()
+    private let networkManager: APIServices
     private let apiKey = "53b1afc277745d64ccd210af319cbed6"
     private let endpoint = "https://api.themoviedb.org/3/movie/popular"
     
     // MARK: - Inits
-    init() {
+    init(networkManager: APIServices) {
+        self.networkManager = networkManager
         getPopularMovies()
     }
     

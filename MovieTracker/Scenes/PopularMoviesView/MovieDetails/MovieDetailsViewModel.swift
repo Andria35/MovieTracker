@@ -11,12 +11,13 @@ import NetworkManager
 final class MovieDetailsViewModel: ObservableObject {
     // MARK: - Properties
     @Published var movieDetails: MovieModel? = nil
-    private let networkManager = NetworkManager()
+    private let networkManager: APIServices
     private let apiKey = "53b1afc277745d64ccd210af319cbed6"
     private let endpoint = "https://api.themoviedb.org/3/movie"
     
     // MARK: - Inits
-    init(movieId: Int) {
+    init(networkManager: APIServices, movieId: Int) {
+        self.networkManager = networkManager
         getMovieDetails(movieId: movieId)
     }
     

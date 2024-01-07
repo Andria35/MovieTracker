@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NetworkManager
 
 struct ContentView: View {
     
@@ -34,12 +35,12 @@ extension ContentView {
     private var popularMoviesNavigationStack: some View {
         NavigationStack(
             path: $popularMoviesViewRouter.navigationPath) {
-                PopularMoviesView()
+                PopularMoviesView(popularMoviesViewModel: PopularMoviesViewModel(networkManager: NetworkManager()))
                     .navigationDestination(for: Router.Destination.self) { destination in
                         switch destination {
                             
                         case .movieDetails(let movieId):
-                            MovieDetailsView(movieDetailsViewModel: MovieDetailsViewModel(movieId: movieId))
+                            MovieDetailsView(movieDetailsViewModel: MovieDetailsViewModel(networkManager: NetworkManager(), movieId: movieId))
                             
                         default:
                             EmptyView()
