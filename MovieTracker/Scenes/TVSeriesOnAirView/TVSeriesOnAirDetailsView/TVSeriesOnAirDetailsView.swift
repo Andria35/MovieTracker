@@ -15,12 +15,14 @@ struct TVSeriesOnAirDetailsView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack {
-            tvSeriesOnAirDetailsImage
-            additionalInfoVStack
-            Spacer()
+        ScrollView {
+            VStack {
+                tvSeriesOnAirDetailsImage
+                additionalInfoVStack
+                Spacer()
+            }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
     }
 }
 
@@ -31,7 +33,6 @@ extension TVSeriesOnAirDetailsView {
     private var tvSeriesOnAirDetailsImage: some View {
         viewModel.tvSeriesOnAirImage
             .resizable()
-            .frame(width: 300, height: 250)
             .aspectRatio(contentMode: .fit)
             .clipShape(RoundedRectangle(cornerRadius: 20))
     }
