@@ -28,7 +28,9 @@ final class PopularMoviesViewModel: ObservableObject {
         Task {
             do {
                 if let response: PopularMoviesResponse = try await networkManager.fetchData(fromURL: url) {
-                    movies = response.results
+                    await MainActor.run {
+                        movies = response.results
+                    }
                 }
             } catch {
                 print(error)
