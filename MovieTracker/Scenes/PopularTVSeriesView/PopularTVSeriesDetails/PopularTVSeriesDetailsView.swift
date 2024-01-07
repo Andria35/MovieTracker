@@ -15,33 +15,35 @@ struct PopularTVSeriesDetailsView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack(spacing: 24) {
-            if popularTVSeriesDetailsViewModel.tvSeriesImageBackdropPath != "" {
-                PopularTVSeriesDetailsImageComponentView(
-                    popularTVSeriesDetailsImageComponentViewModel: PopularTVSeriesDetailsImageComponentViewModel(
-                        backdropPath: popularTVSeriesDetailsViewModel.tvSeriesImageBackdropPath,
-                        networkManager: NetworkManager()))
-            }
-            
-            VStack(spacing: 12) {
-                HStack {
-                    NameView
-                    
-                    Spacer()
-                    
-                    RatingView
+        ScrollView {
+            VStack(spacing: 24) {
+                if popularTVSeriesDetailsViewModel.fetchedTVSeriesDetailsData.tvSeriesImageBackdropPath != "" {
+                    PopularTVSeriesDetailsImageComponentView(
+                        popularTVSeriesDetailsImageComponentViewModel: PopularTVSeriesDetailsImageComponentViewModel(
+                            backdropPath: popularTVSeriesDetailsViewModel.fetchedTVSeriesDetailsData.tvSeriesImageBackdropPath,
+                            networkManager: NetworkManager()))
                 }
                 
-                ReleaseDateView
-            }
-            
-            Text("\(popularTVSeriesDetailsViewModel.tvSeriesOverview)")
-                .lineLimit(3...5)
-            
-            VStack(spacing: 12) {
-                GenreView
+                VStack(spacing: 12) {
+                    HStack {
+                        NameView
+                        
+                        Spacer()
+                        
+                        RatingView
+                    }
+                    
+                    ReleaseDateView
+                }
                 
-                NumberOfSeasonsView
+                Text("\(popularTVSeriesDetailsViewModel.fetchedTVSeriesDetailsData.tvSeriesOverview)")
+                    .lineLimit(3...5)
+                
+                VStack(spacing: 12) {
+                    GenreView
+                    
+                    NumberOfSeasonsView
+                }
             }
         }
         .padding()
@@ -49,7 +51,7 @@ struct PopularTVSeriesDetailsView: View {
     
     // MARK: - Views
     private var NameView: some View {
-        Text("\(popularTVSeriesDetailsViewModel.tvSeriesName)")
+        Text("\(popularTVSeriesDetailsViewModel.fetchedTVSeriesDetailsData.tvSeriesName)")
             .font(.system(size: 20))
             .bold()
     }
@@ -61,13 +63,13 @@ struct PopularTVSeriesDetailsView: View {
                 .frame(width: 20, height: 20)
                 .foregroundStyle(.yellow)
             
-            Text("\(String(format: "%.1f", popularTVSeriesDetailsViewModel.tvSeriesVoteAverage))")
+            Text("\(String(format: "%.1f", popularTVSeriesDetailsViewModel.fetchedTVSeriesDetailsData.tvSeriesVoteAverage))")
         }
     }
     
     private var ReleaseDateView: some View {
         HStack {
-            Text("\(popularTVSeriesDetailsViewModel.tvSeriesReleaseDate)")
+            Text("\(popularTVSeriesDetailsViewModel.fetchedTVSeriesDetailsData.tvSeriesReleaseDate)")
                 .foregroundStyle(.opacity(0.5))
             
             Spacer()
@@ -76,7 +78,7 @@ struct PopularTVSeriesDetailsView: View {
     
     private var GenreView: some View {
         HStack {
-            Text("Genre: \(popularTVSeriesDetailsViewModel.formatedGenreString)")
+            Text("Genre: \(popularTVSeriesDetailsViewModel.fetchedTVSeriesDetailsData.formatedGenreString)")
                 .foregroundStyle(.opacity(0.5))
             Spacer()
         }
@@ -84,7 +86,7 @@ struct PopularTVSeriesDetailsView: View {
     
     private var NumberOfSeasonsView: some View {
         HStack {
-            Text("Number of Seasons: \(popularTVSeriesDetailsViewModel.tvSeriesNumberOfSeasons)")
+            Text("Number of Seasons: \(popularTVSeriesDetailsViewModel.fetchedTVSeriesDetailsData.tvSeriesNumberOfSeasons)")
                 .foregroundStyle(.opacity(0.5))
             Spacer()
         }

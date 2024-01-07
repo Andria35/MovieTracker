@@ -11,7 +11,7 @@ import NetworkManager
 final class PopularTVSeriesGridItemComponentViewModel: ObservableObject {
     // MARK: - Properties
     @Published var tvSeriesImage: Image = Image(systemName: "photo")
-    var tvSeries: PopularTVSeries
+    let tvSeries: PopularTVSeries
     let networkManager: APIServices
     
     // MARK: - Init
@@ -24,6 +24,8 @@ final class PopularTVSeriesGridItemComponentViewModel: ObservableObject {
     }
     
     // MARK: - Methods
+    
+    // MARK: - API Calls
     private func fetchImage(urlString: String) async  {
         do {
             let image = try await networkManager.fetchImage(fromURL: urlString)

@@ -24,6 +24,8 @@ final class PopularTVSeriesDetailsImageComponentViewModel: ObservableObject {
     }
     
     // MARK: - Methods
+    
+    // MARK: - API Calls
     private func fetchImage(urlString: String) async {
         do {
             let image = try await networkManager.fetchImage(fromURL: urlString)

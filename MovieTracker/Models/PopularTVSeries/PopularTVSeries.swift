@@ -13,18 +13,11 @@ struct PopularTVSeriesData: Decodable {
 
 struct PopularTVSeries: Decodable, Identifiable {
     let backdropPath: String
-    let firstAirDate: String
-    let genreIDS: [Int]
     let id: Int
     let name: String
-    let overview: String
-    let voteAverage: Double
 
     enum CodingKeys: String, CodingKey {
         case backdropPath = "backdrop_path"
-        case firstAirDate = "first_air_date"
-        case genreIDS = "genre_ids"
-        case id, name, overview
-        case voteAverage = "vote_average"
+        case id, name
     }
 }

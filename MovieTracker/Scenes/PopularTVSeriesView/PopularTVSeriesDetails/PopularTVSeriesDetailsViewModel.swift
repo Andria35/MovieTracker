@@ -11,15 +11,8 @@ import NetworkManager
 final class PopularTVSeriesDetailsViewModel: ObservableObject {
     // MARK: - Properties
     let networkManager: APIServices
-    var tvSeriesID: Int
-    @Published var tvSeriesName: String = ""
-    @Published var tvSeriesReleaseDate: String = ""
-    @Published var tvSeriesOverview: String = ""
-    @Published var tvSeriesGenre: [Genre] = []
-    @Published var tvSeriesNumberOfSeasons: Int = 1
-    @Published var tvSeriesVoteAverage: Double = 1.0
-    @Published var formatedGenreString: String = ""
-    @Published var tvSeriesImageBackdropPath: String = ""
+    let tvSeriesID: Int
+    @Published var fetchedTVSeriesDetailsData = FetchedTVSeriesDetailsData()
     
     // MARK: - Init
     init(networkManager: APIServices, tvSeriesID: Int) {
@@ -28,24 +21,26 @@ final class PopularTVSeriesDetailsViewModel: ObservableObject {
         Task {
             await fetchTVSeriesData()
             await MainActor.run {
-                formatedGenreString = tvSeriesGenre.map { String($0.name) }.joined(separator: ", ")
+                fetchedTVSeriesDetailsData.formatedGenreString = fetchedTVSeriesDetailsData.tvSeriesGenre.map { String($0.name) }.joined(separator: ", ")
             }
         }
     }
     
     // MARK: - Methods
+    
+    // MARK: - API Calls
     private func fetchTVSeriesData() async {
         let urlString = "https://api.themoviedb.org/3/tv/\(tvSeriesID)?api_key=6eba9c07b10a9dbccd016ffdfea557c8#"
         do {
             let tvSeriesDetailsResponse: PopularTVSeriesDetails = try await networkManager.fetchData(fromURL: urlString)
             await MainActor.run {
-                tvSeriesName = tvSeriesDetailsResponse.name
-                tvSeriesReleaseDate = tvSeriesDetailsResponse.firstAirDate
-                tvSeriesOverview = tvSeriesDetailsResponse.overview
-                tvSeriesGenre = tvSeriesDetailsResponse.genres
-                tvSeriesNumberOfSeasons = tvSeriesDetailsResponse.numberOfSeasons
-                tvSeriesVoteAverage = tvSeriesDetailsResponse.voteAverage
-                tvSeriesImageBackdropPath = tvSeriesDetailsResponse.backdropPath
+                fetchedTVSeriesDetailsData.tvSeriesName = tvSeriesDetailsResponse.name
+                fetchedTVSeriesDetailsData.tvSeriesReleaseDate = tvSeriesDetailsResponse.firstAirDate
+                fetchedTVSeriesDetailsData.tvSeriesOverview = tvSeriesDetailsResponse.overview
+                fetchedTVSeriesDetailsData.tvSeriesGenre = tvSeriesDetailsResponse.genres
+                fetchedTVSeriesDetailsData.tvSeriesNumberOfSeasons = tvSeriesDetailsResponse.numberOfSeasons
+                fetchedTVSeriesDetailsData.tvSeriesVoteAverage = tvSeriesDetailsResponse.voteAverage
+                fetchedTVSeriesDetailsData.tvSeriesImageBackdropPath = tvSeriesDetailsResponse.backdropPath
             }
         }
         catch {

@@ -47,7 +47,7 @@ struct PopularTVSeriesView: View {
             PopularTVSeriesGridItemComponentView(
                 popularTVSeriesGridItemComponentViewModel: PopularTVSeriesGridItemComponentViewModel(
                     tvSeries: tvSeries,
-                    networkManager: popularTVSeriesViewModel.networkManager))
+                    networkManager: NetworkManager()))
             .onTapGesture {
                 router.navigate(to: .popularTVSeriesDetailsView(tvSeriesID: tvSeries.id))
             }

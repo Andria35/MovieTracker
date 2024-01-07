@@ -15,8 +15,8 @@ struct PopularTVSeriesDetailsImageComponentView: View {
     var body: some View {
         popularTVSeriesDetailsImageComponentViewModel.tvSeriesImage
             .resizable()
-            .frame(width: 400, height: 400)
+            .frame(maxWidth: .infinity)
             .scaledToFill()
-            .clipShape(RoundedRectangle(cornerRadius: 72))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

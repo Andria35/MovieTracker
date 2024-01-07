@@ -18,15 +18,16 @@
 		10FC7B612B4885DF00D5247E /* TVSeriesOnAirView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC7B602B4885DF00D5247E /* TVSeriesOnAirView.swift */; };
 		10FC7B632B48860B00D5247E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FC7B622B48860B00D5247E /* Router.swift */; };
 		10FC7B662B48861F00D5247E /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = 10FC7B652B48861F00D5247E /* NetworkManager */; };
-		A10693C52B488C92009E5843 /* PopularTVSeriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693C42B488C92009E5843 /* PopularTVSeriesModel.swift */; };
+		A10693C52B488C92009E5843 /* PopularTVSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693C42B488C92009E5843 /* PopularTVSeries.swift */; };
 		A10693C72B488D39009E5843 /* PopularTVSeriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693C62B488D39009E5843 /* PopularTVSeriesViewModel.swift */; };
 		A10693C92B489E8F009E5843 /* PopularTVSeriesGridItemComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693C82B489E8F009E5843 /* PopularTVSeriesGridItemComponentView.swift */; };
 		A10693CB2B48A8ED009E5843 /* PopularTVSeriesGridItemComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693CA2B48A8ED009E5843 /* PopularTVSeriesGridItemComponentViewModel.swift */; };
-		A10693CF2B49346D009E5843 /* PopularTVSeriesDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693CE2B49346D009E5843 /* PopularTVSeriesDetailsModel.swift */; };
+		A10693CF2B49346D009E5843 /* PopularTVSeriesDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693CE2B49346D009E5843 /* PopularTVSeriesDetails.swift */; };
 		A10693D22B493869009E5843 /* PopularTVSeriesDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693D12B493869009E5843 /* PopularTVSeriesDetailsView.swift */; };
 		A10693D42B493929009E5843 /* PopularTVSeriesDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693D32B493929009E5843 /* PopularTVSeriesDetailsViewModel.swift */; };
 		A10693D62B497251009E5843 /* PopularTVSeriesDetailsImageComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693D52B497251009E5843 /* PopularTVSeriesDetailsImageComponentView.swift */; };
 		A10693D82B49729F009E5843 /* PopularTVSeriesDetailsImageComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693D72B49729F009E5843 /* PopularTVSeriesDetailsImageComponentViewModel.swift */; };
+		A10693DA2B4AAC65009E5843 /* FetchedTVSeriesDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10693D92B4AAC65009E5843 /* FetchedTVSeriesDetailsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,15 +42,16 @@
 		10FC7B5E2B4885C500D5247E /* MoviesInCinemaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInCinemaView.swift; sourceTree = "<group>"; };
 		10FC7B602B4885DF00D5247E /* TVSeriesOnAirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesOnAirView.swift; sourceTree = "<group>"; };
 		10FC7B622B48860B00D5247E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		A10693C42B488C92009E5843 /* PopularTVSeriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesModel.swift; sourceTree = "<group>"; };
+		A10693C42B488C92009E5843 /* PopularTVSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeries.swift; sourceTree = "<group>"; };
 		A10693C62B488D39009E5843 /* PopularTVSeriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesViewModel.swift; sourceTree = "<group>"; };
 		A10693C82B489E8F009E5843 /* PopularTVSeriesGridItemComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesGridItemComponentView.swift; sourceTree = "<group>"; };
 		A10693CA2B48A8ED009E5843 /* PopularTVSeriesGridItemComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesGridItemComponentViewModel.swift; sourceTree = "<group>"; };
-		A10693CE2B49346D009E5843 /* PopularTVSeriesDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesDetailsModel.swift; sourceTree = "<group>"; };
+		A10693CE2B49346D009E5843 /* PopularTVSeriesDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesDetails.swift; sourceTree = "<group>"; };
 		A10693D12B493869009E5843 /* PopularTVSeriesDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesDetailsView.swift; sourceTree = "<group>"; };
 		A10693D32B493929009E5843 /* PopularTVSeriesDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesDetailsViewModel.swift; sourceTree = "<group>"; };
 		A10693D52B497251009E5843 /* PopularTVSeriesDetailsImageComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesDetailsImageComponentView.swift; sourceTree = "<group>"; };
 		A10693D72B49729F009E5843 /* PopularTVSeriesDetailsImageComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTVSeriesDetailsImageComponentViewModel.swift; sourceTree = "<group>"; };
+		A10693D92B4AAC65009E5843 /* FetchedTVSeriesDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedTVSeriesDetailsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,8 +237,9 @@
 		A10693CD2B493443009E5843 /* PopularTVSeries */ = {
 			isa = PBXGroup;
 			children = (
-				A10693C42B488C92009E5843 /* PopularTVSeriesModel.swift */,
-				A10693CE2B49346D009E5843 /* PopularTVSeriesDetailsModel.swift */,
+				A10693C42B488C92009E5843 /* PopularTVSeries.swift */,
+				A10693CE2B49346D009E5843 /* PopularTVSeriesDetails.swift */,
+				A10693D92B4AAC65009E5843 /* FetchedTVSeriesDetailsData.swift */,
 			);
 			path = PopularTVSeries;
 			sourceTree = "<group>";
@@ -326,10 +329,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10693DA2B4AAC65009E5843 /* FetchedTVSeriesDetailsData.swift in Sources */,
 				A10693D82B49729F009E5843 /* PopularTVSeriesDetailsImageComponentViewModel.swift in Sources */,
 				10FC7B632B48860B00D5247E /* Router.swift in Sources */,
 				1016132A2B487F5E00B69769 /* ContentView.swift in Sources */,
-				A10693CF2B49346D009E5843 /* PopularTVSeriesDetailsModel.swift in Sources */,
+				A10693CF2B49346D009E5843 /* PopularTVSeriesDetails.swift in Sources */,
 				101613282B487F5E00B69769 /* MovieTrackerApp.swift in Sources */,
 				A10693D22B493869009E5843 /* PopularTVSeriesDetailsView.swift in Sources */,
 				10FC7B592B48856300D5247E /* PopularMoviesView.swift in Sources */,
@@ -342,7 +346,7 @@
 				10FC7B5D2B4885A700D5247E /* PopularTVSeriesView.swift in Sources */,
 				A10693C92B489E8F009E5843 /* PopularTVSeriesGridItemComponentView.swift in Sources */,
 				A10693D42B493929009E5843 /* PopularTVSeriesDetailsViewModel.swift in Sources */,
-				A10693C52B488C92009E5843 /* PopularTVSeriesModel.swift in Sources */,
+				A10693C52B488C92009E5843 /* PopularTVSeries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

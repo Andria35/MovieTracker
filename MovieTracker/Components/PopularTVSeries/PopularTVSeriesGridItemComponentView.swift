@@ -16,7 +16,6 @@ struct PopularTVSeriesGridItemComponentView: View {
         VStack(spacing: 8) {
             popularTVSeriesGridItemComponentViewModel.tvSeriesImage
                 .resizable()
-                .frame(height: 249)
                 .aspectRatio(contentMode: .fit)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
             
@@ -30,6 +29,7 @@ struct PopularTVSeriesGridItemComponentView: View {
             Text("\(tvSeries.name)")
                 .font(.system(size: 16))
                 .bold()
+                .lineLimit(1)
             Spacer()
         }
     }
